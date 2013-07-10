@@ -81,6 +81,8 @@ GEM
     padrino-cache (0.11.2)
       padrino-core (= 0.11.2)
       padrino-helpers (= 0.11.2)
+    padrino-cookies (0.1.2)
+      padrino-core
     padrino-core (0.11.2)
       activesupport (>= 3.1.0)
       http_router (~> 0.11.0)
@@ -151,7 +153,9 @@ DEPENDENCIES
   dm-validations
   foreman
   haml
+  json
   padrino (= 0.11.2)
+  padrino-cookies
   pg
   rack-test
   rake

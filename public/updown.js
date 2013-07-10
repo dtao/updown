@@ -1,6 +1,9 @@
 (function(window, document) {
   var characters = 'abcdefghijklmnopqrstuvwxyz';
 
+  // Change to http://localhost:$PORT/ for local development.
+  var updownHost = 'http://updown.herokuapp.com/';
+
   function getRandomCharacter(str) {
     return str.charAt(Math.floor(Math.random() * str.length));
   }
@@ -41,8 +44,8 @@
 
   function makeRequest(route, callback) {
     var script = document.createElement('script');
-    script.src = 'http://updown.herokuapp.com/' + route +
-      '?url=' + encodeURIComponent(getCurrentUrl()) +
+    script.src = updownHost + route +
+      '?uri=' + encodeURIComponent(getCurrentUrl()) +
       '&callback=' + createCallback(callback);
     document.head.appendChild(script);
   }

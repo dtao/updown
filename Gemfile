@@ -10,6 +10,7 @@ gem 'rake'
 # Component requirements
 gem 'sass'
 gem 'haml'
+gem 'json'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-migrations'
@@ -18,6 +19,7 @@ gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
 gem 'dm-adjust'
+gem 'padrino-cookies'
 
 # Production requirements
 group :production do
