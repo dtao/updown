@@ -1,8 +1,6 @@
 .env
+
+.sass-cache/*
 log/**/*
 tmp/**/*
-bin/*
-vendor/gems/*
-!vendor/gems/cache/
-.sass-cache/*
 db/*.db
