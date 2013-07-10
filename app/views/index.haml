@@ -52,6 +52,28 @@
       });
 
     :sass
+      @import url(http://fonts.googleapis.com/css?family=Numans)
+
+      $upColor: #8CC739
+      $downColor: #085DAD
+
+      @mixin roundButton($color)
+        border: none
+        border-radius: 10px
+        padding: 10px
+        background-color: $color
+        color: #fff
+        cursor: pointer
+
+        &:hover
+          background-color: lighten($color, 10%)
+
+        &:active
+          background-color: darken($color, 10%)
+
+      body, button
+        font-family: 'Numans', sans-serf
+
       header
         position: absolute
         top: 50%
@@ -63,17 +85,16 @@
 
         h1
           margin: 0
-          font-family: Helvetica, Arial, sans-serif
           font-size: 100px
           font-weight: bold
           letter-spacing: -5px
           line-height: 100px
 
           .up
-            color: green
+            color: $upColor
 
           .down
-            color: blue
+            color: $downColor
 
       #github-ribbon
         position: absolute
@@ -91,8 +112,14 @@
         margin-left: -250px
         text-align: center
 
+        button.vote-up
+          @include roundButton($upColor)
+
+        button.vote-down
+          @include roundButton($downColor)
+
         .loading
-          color: gray
+          color: #ADB6B5
 
   %body
     %header
