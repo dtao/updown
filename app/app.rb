@@ -13,10 +13,6 @@ module Updown
       "#{params['callback']}(#{data.to_json})"
     end
 
-    get '/demo' do
-      render :demo
-    end
-
     get '/counts' do
       subject = Subject.first(:uri => params['uri']) || Subject.new
       respond(subject.vote_counts)
