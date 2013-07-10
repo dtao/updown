@@ -35,6 +35,10 @@
     return callbackName;
   }
 
+  function getCurrentUrl() {
+    return window.location.hostname + window.location.pathname;
+  }
+
   function makeRequest(route, callback) {
     var script = document.createElement('script');
     script.src = 'http://updown.herokuapp.com/' + route +
