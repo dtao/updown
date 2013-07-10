@@ -48,6 +48,10 @@
   }
 
   window.UpDown = {
+    getCounts: function(callback) {
+      makeRequest('counts', callback);
+    },
+
     voteUp: function(callback) {
       makeRequest('up', callback);
     },
