@@ -15,9 +15,19 @@
             (count + ' ' + voteType + 'votes');
         }
 
+        function updateCount(element, count, voteType) {
+          if (element.classList) {
+            element.classList.remove('loading');
+          } else {
+            element.className = '';
+          }
+
+          element.textContent = formatCount(count, voteType);
+        }
+
         function updateCounts(counts) {
-          upvoteCount.textContent = formatCount(counts.upvotes, 'up');
-          downvoteCount.textContent = formatCount(counts.downvotes, 'down');
+          updateCount(upvoteCount, counts.upvotes, 'up');
+          updateCount(downvoteCount, counts.downvotes, 'down');
         }
 
         function handleResponse(response) {
@@ -53,7 +63,6 @@
 
         h1
           margin: 0
-          color: gray
           font-family: Helvetica, Arial, sans-serif
           font-size: 100px
           font-weight: bold
@@ -82,17 +91,20 @@
         margin-left: -250px
         text-align: center
 
+        .loading
+          color: gray
+
   %body
     %header
       %h1
-        <span class='up'>Up</span>/<span class='down'>Down</span>
+        <span class='up'>Up</span><span class='down'>Down</span>
 
     %a#github-ribbon(href='https://github.com/dtao/updown')
       %img(alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png')
 
     %section.voting
       %button.vote-up Vote up
-      %span#upvote-count 0 upvotes
+      %span.loading#upvote-count Loading...
 
       %button.vote-down Vote down
-      %span#downvote-count 0 downvotes
+      %span.loading#downvote-count Loading...
