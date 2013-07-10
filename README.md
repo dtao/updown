@@ -13,11 +13,10 @@ Running locally
 If you want to try this guy out yourself...
 
 - run `bundle install`
-- uncomment the `get '/demo'` line in **app.rb**
 - change `updownHost` to `"http://localhost:4567/"` in **updown.js**
 - create an **.env** file with the following variables for Foreman:
   - `SESSION_SECRET`: just set this to a really crazy long string (like 64 characters)
 - run the server w/ `PORT=4576 foreman start`
-- hit up localhost:4567/demo in your browser
+- hit up localhost:4567 in your browser
 
 Obviously, you don't have to use port 4567 if you don't want to.

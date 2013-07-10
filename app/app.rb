@@ -13,10 +13,9 @@ module Updown
       "#{params['callback']}(#{data.to_json})"
     end
 
-    # Uncomment this for local development.
-    # get '/demo' do
-    #   render :demo
-    # end
+    get '/' do
+      render :index
+    end
 
     get '/counts' do
       subject = Subject.first(:uri => params['uri']) || Subject.new

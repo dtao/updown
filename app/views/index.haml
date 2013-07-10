@@ -1,0 +1,89 @@
+!!!
+%html
+  %head
+    %title Up/Down Demo
+    = javascript_include_tag('/updown')
+
+    :javascript
+      window.addEventListener('load', function() {
+        var upvoteCount = document.getElementById('upvote-count');
+        var downvoteCount = document.getElementById('downvote-count');
+
+        function formatCount(count, voteType) {
+          return count === 1 ?
+            ('1 ' + voteType + 'vote') :
+            (count + ' ' + voteType + 'votes');
+        }
+
+        function updateCounts(counts) {
+          upvoteCount.textContent = formatCount(counts.upvotes, 'up');
+          downvoteCount.textContent = formatCount(counts.downvotes, 'down');
+        }
+
+        function handleResponse(response) {
+          if (response.status === 'duplicate') {
+            alert("You've already voted for this site!");
+            return;
+          }
+          updateCounts(response);
+        }
+
+        UpDown.getCounts(updateCounts);
+
+        var upvoteButton = document.querySelector('button.vote-up');
+        upvoteButton.addEventListener('click', function() {
+          UpDown.voteUp(handleResponse);
+        });
+
+        var downvoteButton = document.querySelector('button.vote-down');
+        downvoteButton.addEventListener('click', function() {
+          UpDown.voteDown(handleResponse);
+        });
+      });
+
+    :sass
+      header
+        position: absolute
+        top: 50%
+        left: 0
+        right: 0
+        height: 100px
+        margin-top: -100px
+        text-align: center
+
+        h1
+          margin: 0
+          color: gray
+          font-family: Helvetica, Arial, sans-serif
+          font-size: 100px
+          font-weight: bold
+          letter-spacing: -5px
+          line-height: 100px
+
+          .up
+            color: green
+
+          .down
+            color: blue
+
+      section.voting
+        position: absolute
+        top: 50%
+        left: 50%
+        height: 300px
+        width: 500px
+        margin-top: 10px
+        margin-left: -250px
+        text-align: center
+
+  %body
+    %header
+      %h1
+        <span class='up'>Up</span>/<span class='down'>Down</span>
+
+    %section.voting
+      %button.vote-up Vote up
+      %span#upvote-count 0 upvotes
+
+      %button.vote-down Vote down
+      %span#downvote-count 0 downvotes
