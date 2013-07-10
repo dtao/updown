@@ -13,6 +13,8 @@ Running locally
 If you want to try this guy out yourself...
 
 - run `bundle install`
+- create a DB directory for sqlite: `mkdir db`
+- run `rake dm:auto:migrate`
 - change `updownHost` to `"http://localhost:4567/"` in **updown.js**
 - create an **.env** file with the following variables for Foreman:
   - `SESSION_SECRET`: just set this to a really crazy long string (like 64 characters)
