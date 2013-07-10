@@ -2,7 +2,7 @@
   var characters = 'abcdefghijklmnopqrstuvwxyz';
 
   // Change to http://localhost:$PORT/ for local development.
-  var updownHost = 'http://updown.herokuapp.com/';
+  var updownHost = 'http://up-down.herokuapp.com/';
 
   function getRandomCharacter(str) {
     return str.charAt(Math.floor(Math.random() * str.length));
