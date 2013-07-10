@@ -14,6 +14,8 @@ GEM
     data_objects (0.10.13)
       addressable (~> 2.1)
     diff-lcs (1.2.4)
+    dm-adjust (1.2.0)
+      dm-core (~> 1.2.0)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
@@ -137,6 +139,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dm-adjust
   dm-aggregates
   dm-constraints
   dm-core
