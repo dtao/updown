@@ -66,6 +66,12 @@
           .down
             color: blue
 
+      #github-ribbon
+        position: absolute
+        top: 0
+        left: 0
+        border: none
+
       section.voting
         position: absolute
         top: 50%
@@ -80,6 +86,9 @@
     %header
       %h1
         <span class='up'>Up</span>/<span class='down'>Down</span>
+
+    %a#github-ribbon(href='https://github.com/dtao/updown')
+      %img(alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png')
 
     %section.voting
       %button.vote-up Vote up
