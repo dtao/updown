@@ -24,14 +24,14 @@ module Updown
 
     get '/up' do
       subject = Subject.first_or_create(:uri => params['uri'])
-      if cookie[subject.id].nil?
+      if cookies.permanent[subject.id].nil?
         subject.adjust!({ :upvotes => 1 }, true)
-        cookie[subject.id] = 'up'
+        cookies.permanent[subject.id] = 'up'
         respond(subject.vote_counts)
 
-      elsif cookie[subject.id] == 'down'
+      elsif cookies.permanent[subject.id] == 'down'
         subject.adjust!({ :upvotes => 1, :downvotes => -1 }, true)
-        cookie[subject.id] = 'up'
+        cookies.permanent[subject.id] = 'up'
         respond(subject.vote_counts)
 
       else
@@ -41,14 +41,14 @@ module Updown
 
     get '/down' do
       subject = Subject.first_or_create(:uri => params['uri'])
-      if cookie[subject.id].nil?
+      if cookies.permanent[subject.id].nil?
         subject.adjust!({ :downvotes => 1 }, true)
-        cookie[subject.id] = 'down'
+        cookies.permanent[subject.id] = 'down'
         respond(subject.vote_counts)
 
-      elsif cookie[subject.id] == 'up'
+      elsif cookies.permanent[subject.id] == 'up'
         subject.adjust!({ :upvotes => -1, :downvotes => 1 }, true)
-        cookie[subject.id] = 'down'
+        cookies.permanent[subject.id] = 'down'
         respond(subject.vote_counts)
 
       else
